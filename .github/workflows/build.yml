@@ -1,5 +1,6 @@
       - name: Build
-        run: gradle build --no-daemon 2>&1
+        run: gradle build --no-daemon --info
+
 
 on:
   push:
