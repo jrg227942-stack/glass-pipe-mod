@@ -1,3 +1,4 @@
+public static final MapCodec<GlassPipeBlock> CODEC = createCodec(GlassPipeBlock::new);
 package com.glasspipe.block;
 
 import com.glasspipe.block.entity.GlassPipeBlockEntity;
@@ -25,6 +26,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+import com.mojang.serialization.MapCodec;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,4 +208,9 @@ public class GlassPipeBlock extends BlockWithEntity {
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
+}
+
+@Override
+public MapCodec<? extends BlockWithEntity> getCodec() {
+    return CODEC;
 }
