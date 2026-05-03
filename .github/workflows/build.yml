@@ -5,7 +5,10 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
-  workflow_dispatch:  # allows manual trigger from GitHub UI
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -21,10 +24,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Build with Gradle
-        run: |
-          chmod +x ./gradlew
-          ./gradlew build
+        run: gradle build --no-daemon
 
       - name: Upload mod JAR
         uses: actions/upload-artifact@v4
