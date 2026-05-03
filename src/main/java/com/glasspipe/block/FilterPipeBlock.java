@@ -2,6 +2,7 @@ package com.glasspipe.block;
 
 import com.glasspipe.block.entity.FilterPipeBlockEntity;
 import com.glasspipe.block.entity.ModBlockEntities;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -13,16 +14,18 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import com.mojang.serialization.MapCodec;
 
-/**
- * Filter pipe block - extends glass pipe with a GUI for configuring
- * item filters (whitelist/blacklist mode).
- */
 public class FilterPipeBlock extends GlassPipeBlock {
+
+    public static final MapCodec<FilterPipeBlock> CODEC = createCodec(FilterPipeBlock::new);
 
     public FilterPipeBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    public MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -34,11 +37,9 @@ public class FilterPipeBlock extends GlassPipeBlock {
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             World world, BlockState state, BlockEntityType<T> type) {
         if (world.isClient()) {
-            return checkType(type, ModBlockEntities.FILTER_PIPE,
-                    FilterPipeBlockEntity::clientTick);
+            return checkType(type, ModBlockEntities.FILTER_PIPE, FilterPipeBlockEntity::clientTick);
         }
-        return checkType(type, ModBlockEntities.FILTER_PIPE,
-                FilterPipeBlockEntity::serverTick);
+        return checkType(type, ModBlockEntities.FILTER_PIPE, FilterPipeBlockEntity::serverTick);
     }
 
     @Override
@@ -53,4 +54,3 @@ public class FilterPipeBlock extends GlassPipeBlock {
         return ActionResult.SUCCESS;
     }
 }
-public static final MapCodec<FilterPipeBlock> CODEC = createCodec(FilterPipeBlock::new);
