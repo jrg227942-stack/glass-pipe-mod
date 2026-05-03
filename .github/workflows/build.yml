@@ -1,8 +1,5 @@
       - name: Build
         run: gradle build --no-daemon --info
-
-
-on:
   push:
     branches: [ "main", "master" ]
   pull_request:
