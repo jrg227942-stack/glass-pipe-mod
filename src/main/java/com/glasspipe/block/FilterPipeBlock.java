@@ -13,6 +13,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import com.mojang.serialization.MapCodec;
 
 /**
  * Filter pipe block - extends glass pipe with a GUI for configuring
@@ -52,3 +53,4 @@ public class FilterPipeBlock extends GlassPipeBlock {
         return ActionResult.SUCCESS;
     }
 }
+public static final MapCodec<FilterPipeBlock> CODEC = createCodec(FilterPipeBlock::new);
