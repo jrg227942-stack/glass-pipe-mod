@@ -36,10 +36,11 @@ public class FilterPipeBlock extends GlassPipeBlock {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             World world, BlockState state, BlockEntityType<T> type) {
+        if (type != ModBlockEntities.FILTER_PIPE) return null;
         if (world.isClient()) {
-            return checkType(type, ModBlockEntities.FILTER_PIPE, FilterPipeBlockEntity::clientTick);
+            return (w, pos, s, be) -> FilterPipeBlockEntity.clientTick(w, pos, s, (FilterPipeBlockEntity) be);
         }
-        return checkType(type, ModBlockEntities.FILTER_PIPE, FilterPipeBlockEntity::serverTick);
+        return (w, pos, s, be) -> FilterPipeBlockEntity.serverTick(w, pos, s, (FilterPipeBlockEntity) be);
     }
 
     @Override
