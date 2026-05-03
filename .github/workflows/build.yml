@@ -1,4 +1,5 @@
-name: Build Mod
+      - name: Build
+        run: gradle build --no-daemon 2>&1
 
 on:
   push:
