@@ -1,0 +1,54 @@
+package com.glasspipe.block;
+
+import com.glasspipe.block.entity.FilterPipeBlockEntity;
+import com.glasspipe.block.entity.ModBlockEntities;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * Filter pipe block - extends glass pipe with a GUI for configuring
+ * item filters (whitelist/blacklist mode).
+ */
+public class FilterPipeBlock extends GlassPipeBlock {
+
+    public FilterPipeBlock(Settings settings) {
+        super(settings);
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new FilterPipeBlockEntity(pos, state);
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
+            World world, BlockState state, BlockEntityType<T> type) {
+        if (world.isClient()) {
+            return checkType(type, ModBlockEntities.FILTER_PIPE,
+                    FilterPipeBlockEntity::clientTick);
+        }
+        return checkType(type, ModBlockEntities.FILTER_PIPE,
+                FilterPipeBlockEntity::serverTick);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos,
+                               PlayerEntity player, BlockHitResult hit) {
+        if (!world.isClient()) {
+            BlockEntity be = world.getBlockEntity(pos);
+            if (be instanceof NamedScreenHandlerFactory factory) {
+                player.openHandledScreen(factory);
+            }
+        }
+        return ActionResult.SUCCESS;
+    }
+}

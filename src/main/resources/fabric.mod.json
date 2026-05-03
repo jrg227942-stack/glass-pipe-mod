@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "glass_pipe_transport",
+  "version": "${version}",
+  "name": "Glass Pipe Transport System",
+  "description": "A glass pipe-based item transport system with filters, visual effects, and routing logic.",
+  "authors": [
+    "GlassPipeDev"
+  ],
+  "contact": {
+    "homepage": "https://github.com/glasspipe/glass-pipe-transport",
+    "sources": "https://github.com/glasspipe/glass-pipe-transport"
+  },
+  "license": "MIT",
+  "icon": "assets/glass_pipe_transport/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.glasspipe.GlassPipeTransportMod"
+    ],
+    "client": [
+      "com.glasspipe.client.GlassPipeTransportClient"
+    ]
+  },
+  "mixins": [
+    "glass_pipe_transport.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21",
+    "java": ">=17"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

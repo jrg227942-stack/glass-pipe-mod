@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "glass_pipe_transport:item/sorting_upgrade"
+  }
+}

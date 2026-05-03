@@ -1,0 +1,31 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "glass_pipe_transport:block/filter_pipe_core" }
+    },
+    {
+      "when": { "north": "true" },
+      "apply": { "model": "glass_pipe_transport:block/glass_pipe_arm_north" }
+    },
+    {
+      "when": { "south": "true" },
+      "apply": { "model": "glass_pipe_transport:block/glass_pipe_arm_south" }
+    },
+    {
+      "when": { "east": "true" },
+      "apply": { "model": "glass_pipe_transport:block/glass_pipe_arm_east" }
+    },
+    {
+      "when": { "west": "true" },
+      "apply": { "model": "glass_pipe_transport:block/glass_pipe_arm_west" }
+    },
+    {
+      "when": { "up": "true" },
+      "apply": { "model": "glass_pipe_transport:block/glass_pipe_arm_up" }
+    },
+    {
+      "when": { "down": "true" },
+      "apply": { "model": "glass_pipe_transport:block/glass_pipe_arm_down" }
+    }
+  ]
+}

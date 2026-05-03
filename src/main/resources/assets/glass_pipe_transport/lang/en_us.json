@@ -1,0 +1,27 @@
+{
+  "itemGroup.glass_pipe_transport.main": "Glass Pipe Transport",
+
+  "block.glass_pipe_transport.glass_pipe": "Glass Pipe",
+  "block.glass_pipe_transport.filter_pipe": "Filter Pipe",
+
+  "item.glass_pipe_transport.glass_pipe": "Glass Pipe",
+  "item.glass_pipe_transport.filter_pipe": "Filter Pipe",
+  "item.glass_pipe_transport.speed_upgrade": "Speed Upgrade",
+  "item.glass_pipe_transport.sorting_upgrade": "Sorting Upgrade",
+  "item.glass_pipe_transport.pipe_wrench": "Pipe Wrench",
+
+  "item.glass_pipe_transport.speed_upgrade.applied": "Speed Upgrade installed!",
+  "item.glass_pipe_transport.speed_upgrade.already_installed": "Speed Upgrade already installed.",
+  "item.glass_pipe_transport.sorting_upgrade.applied": "Sorting Upgrade installed!",
+  "item.glass_pipe_transport.sorting_upgrade.already_installed": "Sorting Upgrade already installed.",
+  "item.glass_pipe_transport.pipe_wrench.removed_speed": "Speed Upgrade removed.",
+  "item.glass_pipe_transport.pipe_wrench.removed_sorting": "Sorting Upgrade removed.",
+
+  "gui.glass_pipe_transport.filter_pipe.whitelist": "Whitelist",
+  "gui.glass_pipe_transport.filter_pipe.blacklist": "Blacklist",
+  "gui.glass_pipe_transport.filter_pipe.filter_label": "Filter:",
+
+  "tooltip.glass_pipe_transport.speed_upgrade": "Right-click a pipe to install. Doubles item transport speed.",
+  "tooltip.glass_pipe_transport.sorting_upgrade": "Right-click a pipe to install. Routes items to best-fit inventories.",
+  "tooltip.glass_pipe_transport.pipe_wrench": "Right-click to remove Sorting Upgrade. Sneak+Right-click to remove Speed Upgrade."
+}

@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "pipe": "glass_pipe_transport:block/glass_pipe",
+    "particle": "glass_pipe_transport:block/glass_pipe"
+  },
+  "elements": [
+    {
+      "from": [4, 4, 12],
+      "to": [12, 12, 16],
+      "faces": {
+        "south": { "uv": [4, 4, 12, 12], "texture": "#pipe", "cullface": "south" },
+        "east":  { "uv": [12, 4, 16, 12], "texture": "#pipe" },
+        "west":  { "uv": [12, 4, 16, 12], "texture": "#pipe" },
+        "up":    { "uv": [4, 12, 12, 16], "texture": "#pipe" },
+        "down":  { "uv": [4, 12, 12, 16], "texture": "#pipe" }
+      }
+    }
+  ]
+}
