@@ -63,7 +63,7 @@ public class TransitItem {
 
     public NbtCompound toNbt(RegistryWrapper.WrapperLookup registries) {
         NbtCompound nbt = new NbtCompound();
-        nbt.getCompoundOrEmpty("stack")
+        nbt.getCompoundOrEmpty("stack").
         nbt.putFloat("progress", progress);
         nbt.putString("direction", travelDirection.getName());
         nbt.putLong("targetPos", targetPos.asLong());
