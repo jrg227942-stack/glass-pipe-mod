@@ -149,10 +149,11 @@ public class GlassPipeBlock extends BlockWithEntity {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             World world, BlockState state, BlockEntityType<T> type) {
+        if (type != ModBlockEntities.GLASS_PIPE) return null;
         if (world.isClient()) {
-            return checkType(type, ModBlockEntities.GLASS_PIPE, GlassPipeBlockEntity::clientTick);
+            return (w, pos, s, be) -> GlassPipeBlockEntity.clientTick(w, pos, s, (GlassPipeBlockEntity) be);
         }
-        return checkType(type, ModBlockEntities.GLASS_PIPE, GlassPipeBlockEntity::serverTick);
+        return (w, pos, s, be) -> GlassPipeBlockEntity.serverTick(w, pos, s, (GlassPipeBlockEntity) be);
     }
 
     @Override
@@ -181,4 +182,3 @@ public class GlassPipeBlock extends BlockWithEntity {
         }
     }
 }
-
